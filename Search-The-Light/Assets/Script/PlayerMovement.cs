@@ -35,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isLeft;
 
-    private int brains;
 
     private float immortalTime;
 
@@ -50,7 +49,6 @@ public class PlayerMovement : MonoBehaviour
         left = transform.localScale;
         left.x *= -1;
         canAttack = true;
-        brains = 0;
         immortalTime = 0;
         PlayerPrefs.SetInt("Score", 0);
         PlayerPrefs.SetString("CanDie", "true");
@@ -59,10 +57,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.V) && brains > 2)
+        if (Input.GetKeyDown(KeyCode.V))
         {
             PlayerPrefs.SetString("CanDie", "false");
-            brains = brains - 3;
             capsule.SetActive(true);
             StartCoroutine(immortalTiming());
         }
@@ -72,13 +69,13 @@ public class PlayerMovement : MonoBehaviour
 
         if(xdir < 0)
         {
-            transform.localScale = left;
-            //playeranim.SetBool("isLeft", true);
+            this.gameObject.transform.localScale = left;
+            playeranim.SetBool("isLeft", true);
         }
         else
         {
-            transform.localScale = right;
-            //playeranim.SetBool("isLeft", false);
+            this.gameObject.transform.localScale = right;
+            playeranim.SetBool("isLeft", false);
         }
 
         if (rb.velocity.x != 0)
@@ -93,28 +90,34 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButton("Jump") && canJump)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpforce);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space) && canAttack)
-        {
-            //if (playeranim.GetCurrentAnimatorStateInfo(0).IsTag("Left"))
-            //{
-            //    playeranim.SetBool("isLeft", true);
-            //    playeranim.SetBool("attack", true);
-            //    transform.localScale = left;
-
-            //}
-            //else
-            //{
-            //    playeranim.SetBool("isLeft", false);
-            //    playeranim.SetBool("attack", true);
-            //    transform.localScale = right;
-            //}
-            Instantiate(bullet, bulletPlace.transform.position, this.gameObject.transform.rotation);
+            playeranim.SetBool("jump", true);
         }
         else
         {
-           // playeranim.SetBool("attack", false);
+            playeranim.SetBool("jump", false);
+        }
+        
+
+        if (Input.GetKeyDown(KeyCode.Space) && canAttack)
+        {
+            if (playeranim.GetCurrentAnimatorStateInfo(0).IsTag("Left"))
+            {
+                playeranim.SetBool("isLeft", true);
+                playeranim.SetBool("attack", true);
+                transform.localScale = left;
+
+            }
+            else
+            {
+                playeranim.SetBool("isLeft", false);
+                playeranim.SetBool("attack", true);
+                transform.localScale = right;
+            }
+            //Instantiate(bullet, bulletPlace.transform.position, this.gameObject.transform.rotation);
+        }
+        else
+        {
+            playeranim.SetBool("attack", false);
         }
 
 
@@ -124,7 +127,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.CompareTag("Brain"))
         {
-            brains = brains + 1;
             PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score", 0) + 5);
             Destroy(collision.gameObject);
         }
@@ -150,10 +152,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public int getBrains()
-    {
-        return brains;
-    }
 
     IEnumerator immortalTiming()
     {
