@@ -73,21 +73,21 @@ public class PlayerMovement : MonoBehaviour
         if(xdir < 0)
         {
             transform.localScale = left;
-            playeranim.SetBool("isLeft", true);
+            //playeranim.SetBool("isLeft", true);
         }
         else
         {
             transform.localScale = right;
-            playeranim.SetBool("isLeft", false);
+            //playeranim.SetBool("isLeft", false);
         }
 
         if (rb.velocity.x != 0)
         {
-            playeranim.SetBool("walking", true);
+            playeranim.SetBool("running", true);
         }
         else
         {
-            playeranim.SetBool("walking", false);
+            playeranim.SetBool("running", false);
         }
 
         if (Input.GetButton("Jump") && canJump)
@@ -97,24 +97,24 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && canAttack)
         {
-            if (playeranim.GetCurrentAnimatorStateInfo(0).IsTag("Left"))
-            {
-                playeranim.SetBool("isLeft", true);
-                playeranim.SetBool("attack", true);
-                transform.localScale = left;
+            //if (playeranim.GetCurrentAnimatorStateInfo(0).IsTag("Left"))
+            //{
+            //    playeranim.SetBool("isLeft", true);
+            //    playeranim.SetBool("attack", true);
+            //    transform.localScale = left;
 
-            }
-            else
-            {
-                playeranim.SetBool("isLeft", false);
-                playeranim.SetBool("attack", true);
-                transform.localScale = right;
-            }
+            //}
+            //else
+            //{
+            //    playeranim.SetBool("isLeft", false);
+            //    playeranim.SetBool("attack", true);
+            //    transform.localScale = right;
+            //}
             Instantiate(bullet, bulletPlace.transform.position, this.gameObject.transform.rotation);
         }
         else
         {
-            playeranim.SetBool("attack", false);
+           // playeranim.SetBool("attack", false);
         }
 
 
