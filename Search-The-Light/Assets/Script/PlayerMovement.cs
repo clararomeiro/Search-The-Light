@@ -141,6 +141,11 @@ public class PlayerMovement : MonoBehaviour
             canJump = true;
         }
 
+        if (collision.collider.CompareTag("Enemy"))
+        {
+            GameController.instance.ShowGameOver();
+            Destroy(gameObject);
+        }
 
     }
 
