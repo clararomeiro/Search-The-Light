@@ -6,7 +6,6 @@ public class coletavel : MonoBehaviour
 {
     private SpriteRenderer sr;
     private CircleCollider2D circle;
-    public GameObject collected;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +26,6 @@ public class coletavel : MonoBehaviour
         {
             sr.enabled = false;
             circle.enabled = false;
-            collected.SetActive(true);
 
             Destroy(gameObject, 0.25f);
         }
