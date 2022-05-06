@@ -36,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
     private int bulletqtd;
 
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -108,6 +107,7 @@ public class PlayerMovement : MonoBehaviour
             GameController.instance.totalScore -= 1;
 
             GameController.instance.UpdateScoreText();
+            GameController.instance.UpdateLight();
         }
         else
         {

@@ -1248,6 +1248,7 @@ MonoBehaviour:
   totalScore: 0
   scoreText: {fileID: 386389679}
   gameOver: {fileID: 768274950}
+  light: {fileID: 1405426817}
 --- !u!4 &1035278606
 Transform:
   m_ObjectHideFlags: 0
@@ -2193,6 +2194,17 @@ Transform:
   m_Father: {fileID: 1847251671}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1405426817 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8923172562635862792, guid: 09cd01e7d4e85d84880268239b452d1e, type: 3}
+  m_PrefabInstance: {fileID: 6055092149345286798}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1477915260
 GameObject:
   m_ObjectHideFlags: 0
