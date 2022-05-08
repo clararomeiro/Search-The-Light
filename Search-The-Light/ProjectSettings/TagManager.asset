@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Object
   - Bullet
+  - NextLevel
+  - EndLevel
   layers:
   - Default
   - TransparentFX

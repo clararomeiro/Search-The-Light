@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -117,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
 
         if (collision.collider.CompareTag("Floor") || collision.collider.CompareTag("Object"))
@@ -141,6 +142,22 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+        Debug.Log("trigger");
+        if (collision.CompareTag("EndLevel"))
+        {
+            Debug.Log("endlevel");
+            GameController.instance.ShowGameOver();
+        }
+
+        if (collision.CompareTag("NextLevel"))
+        {
+            SceneManager.LoadScene("level2");
+        }
+    }
 
 
 }
