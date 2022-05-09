@@ -33,9 +33,7 @@ public class Collectable : MonoBehaviour
             GameController.instance.totalScore += Score;
 
             GameController.instance.UpdateScoreText();
-
-            GameController.instance.UpdateLight();
-
+            
             Destroy(gameObject, 0.25f);
         }
     }
