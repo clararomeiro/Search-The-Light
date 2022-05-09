@@ -12,6 +12,8 @@ public class Projetil : MonoBehaviour
     private GameObject Player;
     private float playerDirection;
 
+    public GameObject boxCollider;
+
     private void Awake()
     {
         Player = FindObjectOfType<PlayerMovement>().gameObject;
@@ -46,6 +48,13 @@ public class Projetil : MonoBehaviour
 
         Destroy(gameObject, time);
     }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
 
+        if(collision.gameObject.tag == "Object")
+        {
+            boxCollider.SetActive(false);
+        }
+    }
 
 }
