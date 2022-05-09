@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -33,13 +34,8 @@ public class PlayerMovement : MonoBehaviour
 
     private bool canAttack;
 
-    private bool isLeft;
+    private int bulletqtd;
 
-
-    private float immortalTime;
-
-    [SerializeField]
-    private GameObject capsule;
 
     // Start is called before the first frame update
     void Start()
@@ -48,26 +44,20 @@ public class PlayerMovement : MonoBehaviour
         right = transform.localScale;
         left = transform.localScale;
         left.x *= -1;
-        canAttack = true;
-        immortalTime = 0;
-        PlayerPrefs.SetInt("Score", 0);
+        PlayerPrefs.SetInt("bullet", 0);
         PlayerPrefs.SetString("CanDie", "true");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            PlayerPrefs.SetString("CanDie", "false");
-            capsule.SetActive(true);
-            StartCoroutine(immortalTiming());
-        }
+        bulletqtd = PlayerPrefs.GetInt("bullet");
+
 
         xdir = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(xdir * vel, rb.velocity.y);
 
-        if(xdir < 0)
+        if (xdir < 0)
         {
             this.gameObject.transform.localScale = left;
             playeranim.SetBool("isLeft", true);
@@ -96,9 +86,9 @@ public class PlayerMovement : MonoBehaviour
         {
             playeranim.SetBool("jump", false);
         }
-        
 
-        if (Input.GetKeyDown(KeyCode.Space) && canAttack)
+
+        if (Input.GetKeyDown(KeyCode.Space) && PlayerPrefs.GetInt("bullet") >= 1)
         {
             if (playeranim.GetCurrentAnimatorStateInfo(0).IsTag("Left"))
             {
@@ -113,7 +103,12 @@ public class PlayerMovement : MonoBehaviour
                 playeranim.SetBool("attack", true);
                 transform.localScale = right;
             }
-            //Instantiate(bullet, bulletPlace.transform.position, this.gameObject.transform.rotation);
+            Instantiate(bullet, bulletPlace.transform.position, this.gameObject.transform.rotation);
+            PlayerPrefs.SetInt("bullet", bulletqtd - 1);
+            GameController.instance.totalScore -= 1;
+
+            GameController.instance.UpdateScoreText();
+            GameController.instance.UpdateLight();
         }
         else
         {
@@ -122,21 +117,11 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnCollisionStay2D(Collision2D collision)
     {
 
-        if (collision.CompareTag("Brain"))
-        {
-            PlayerPrefs.SetInt("Score", PlayerPrefs.GetInt("Score", 0) + 5);
-            Destroy(collision.gameObject);
-        }
-
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-        if (collision.collider.CompareTag("Floor"))
+        if (collision.collider.CompareTag("Floor") || collision.collider.CompareTag("Object"))
         {
             canJump = true;
         }
@@ -151,19 +136,28 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Floor"))
+        if (collision.collider.CompareTag("Floor") || collision.collider.CompareTag("Object"))
         {
             canJump = false;
         }
     }
 
 
-    IEnumerator immortalTiming()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        yield return new WaitForSeconds(10f);
 
-        capsule.SetActive(false);
-        PlayerPrefs.SetString("CanDie", "true");
+        Debug.Log("trigger");
+        if (collision.CompareTag("EndLevel"))
+        {
+            Debug.Log("endlevel");
+            GameController.instance.ShowGameOver();
+        }
+
+        if (collision.CompareTag("NextLevel"))
+        {
+            SceneManager.LoadScene("level2");
+        }
     }
+
 
 }
