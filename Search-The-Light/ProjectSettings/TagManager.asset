@@ -4,21 +4,16 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Floor
-  - Enemy
-<<<<<<< Updated upstream
-=======
-  - Object
   - Bullet
-  - NextLevel
+  - Enemy
+  - Object
   - EndLevel
-  - VCam
->>>>>>> Stashed changes
+  - Floor
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 
@@ -51,15 +46,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
-    uniqueID: 1429829203
-    locked: 0
   - name: Player
-    uniqueID: 2523841353
-    locked: 0
-  - name: UI
-    uniqueID: 1129076715
-    locked: 0
-  - name: Enemy
-    uniqueID: 2133800667
+    uniqueID: 13863911
     locked: 0
