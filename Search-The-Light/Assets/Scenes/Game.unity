@@ -1818,8 +1818,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e077f863a24861649858bfef74da55e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalMunition: 0
+  munitionText: {fileID: 386389679}
   totalScore: 0
-  scoreText: {fileID: 386389679}
+  scoreText: {fileID: 433803295}
   gameOver: {fileID: 768274950}
   nextLevelTrigger: {fileID: 0}
   endLevelTrigger: {fileID: 0}

@@ -170,6 +170,7 @@ MonoBehaviour:
   spot: 0
   inicioCP: {fileID: 7770470040196154813}
   fimCP: {fileID: 6278850041456787696}
+  Score: 1
 --- !u!1 &387324965797150295
 GameObject:
   m_ObjectHideFlags: 0
