@@ -11,6 +11,9 @@ public class GameController : MonoBehaviour
     public int totalScore;
     public Text scoreText;
 
+    public int totalMunition;
+    public Text munitionText;
+
     public static GameController instance;
 
     public GameObject gameOver;
@@ -40,15 +43,21 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(lvlName);
     }
 
+    public void UpdateMunitionText()
+    {
+        munitionText.text = totalMunition.ToString();
+        PlayerPrefs.SetInt("bullet", totalMunition);
+    }
+
     public void UpdateScoreText()
     {
         scoreText.text = totalScore.ToString();
-        PlayerPrefs.SetInt("bullet", totalScore);
     }
+
 
     public void UpdateLight()
     {
-        light.pointLightOuterRadius = 3 + (totalScore/2);
+        light.pointLightOuterRadius = 3 + (totalMunition/2);
     }
 
 }

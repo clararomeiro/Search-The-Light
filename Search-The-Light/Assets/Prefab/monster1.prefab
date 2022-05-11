@@ -145,7 +145,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 599e96dffe02181438d2c3f7c06dfb2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   speed: 1
+=======
+  speed: 0
+  spot: 0
+  inicioCP: {fileID: 4787960111598995412}
+  fimCP: {fileID: 8043197804069722980}
+  Score: 1
+>>>>>>> Stashed changes
 --- !u!95 &1821084748701318277
 Animator:
   serializedVersion: 3

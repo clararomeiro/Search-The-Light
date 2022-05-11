@@ -8,7 +8,7 @@ public class Collectable : MonoBehaviour
     private CircleCollider2D circle;
 
     public GameObject collected;
-    public int Score;
+    public int Munition;
 
     // Start is called before the first frame update
     void Start()
@@ -30,9 +30,9 @@ public class Collectable : MonoBehaviour
             sr.enabled = false;
             collected.SetActive(true);
 
-            GameController.instance.totalScore += Score;
+            GameController.instance.totalMunition += Munition;
 
-            GameController.instance.UpdateScoreText();
+            GameController.instance.UpdateMunitionText();
 
             GameController.instance.UpdateLight();
 
