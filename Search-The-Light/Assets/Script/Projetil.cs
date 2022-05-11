@@ -9,10 +9,12 @@ public class Projetil : MonoBehaviour
 
     private float time = 1.5f;
 
+    private Rigidbody2D rig;
+
     private GameObject Player;
     private float playerDirection;
 
-    public GameObject boxCollider;
+   // public GameObject boxCollider;
 
     private void Awake()
     {
@@ -21,6 +23,7 @@ public class Projetil : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rig = GetComponent<Rigidbody2D>();
         //playerDirection = Player.transform.localScale.x;
         if (Player.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsTag("Left"))
         {
@@ -48,13 +51,19 @@ public class Projetil : MonoBehaviour
 
         Destroy(gameObject, time);
     }
+    
     void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if(collision.gameObject.tag == "Object")
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
+
+       /* if(collision.gameObject.CompareTag("Object"))
         {
             boxCollider.SetActive(false);
-        }
+        }*/
     }
 
 }
