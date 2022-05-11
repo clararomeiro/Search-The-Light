@@ -8,9 +8,6 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class GameController : MonoBehaviour
 {
 
-    public int totalMunition;
-    public Text munitionText;
-
     public int totalScore;
     public Text scoreText;
 
@@ -43,20 +40,15 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(lvlName);
     }
 
-    public void UpdateMunitionText()
-    {
-        munitionText.text = totalMunition.ToString();
-        PlayerPrefs.SetInt("bullet", totalMunition);
-    }
-
-     public void UpdateScoreText()
+    public void UpdateScoreText()
     {
         scoreText.text = totalScore.ToString();
+        PlayerPrefs.SetInt("bullet", totalScore);
     }
 
     public void UpdateLight()
     {
-        light.pointLightOuterRadius = 3 + (totalMunition/2);
+        light.pointLightOuterRadius = 3 + (totalScore/2);
     }
 
 }

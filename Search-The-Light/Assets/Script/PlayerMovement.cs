@@ -105,9 +105,9 @@ public class PlayerMovement : MonoBehaviour
             }
             Instantiate(bullet, bulletPlace.transform.position, this.gameObject.transform.rotation);
             PlayerPrefs.SetInt("bullet", bulletqtd - 1);
-            GameController.instance.totalMunition -= 1;
+            GameController.instance.totalScore -= 1;
 
-            GameController.instance.UpdateMunitionText();
+            GameController.instance.UpdateScoreText();
             GameController.instance.UpdateLight();
         }
         else
@@ -153,10 +153,10 @@ public class PlayerMovement : MonoBehaviour
             GameController.instance.ShowGameOver();
         }
 
-        /*if (collision.CompareTag("NextLevel"))
+        if (collision.CompareTag("NextLevel"))
         {
             SceneManager.LoadScene("level2");
-        }*/
+        }
     }
 
 

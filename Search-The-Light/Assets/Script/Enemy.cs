@@ -10,14 +10,6 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rig;
 
     private bool colliding;
-<<<<<<< Updated upstream
-=======
-
-    public bool spot = false;
-    public Transform inicioCP;
-    public Transform fimCP;
-    public int Score;
->>>>>>> Stashed changes
     
 
     // Start is called before the first frame update
@@ -43,8 +35,8 @@ public class Enemy : MonoBehaviour
         if(collision.gameObject.tag == "Bullet")
         {
             Destroy(gameObject, 0.25f);
-            GameController.instance.totalScore += Score;
-            GameController.instance.UpdateScoreText();
+            /*GameController.instance.totalScore += Score;
+            GameController.instance.UpdateScoreText();*/
         }
         
     

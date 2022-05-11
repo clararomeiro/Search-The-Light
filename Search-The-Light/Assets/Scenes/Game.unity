@@ -1818,10 +1818,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e077f863a24861649858bfef74da55e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalMunition: 0
-  munitionText: {fileID: 386389679}
   totalScore: 0
-  scoreText: {fileID: 433803295}
+  scoreText: {fileID: 386389679}
   gameOver: {fileID: 768274950}
   nextLevelTrigger: {fileID: 0}
   endLevelTrigger: {fileID: 0}
@@ -7674,10 +7672,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Box
       objectReference: {fileID: 0}
-    - target: {fileID: 7060431191776372486, guid: 3d15a8fefee144c4c81c53b8f5fdd4d8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d15a8fefee144c4c81c53b8f5fdd4d8, type: 3}
 --- !u!4 &1129859146 stripped
@@ -8339,10 +8333,6 @@ PrefabInstance:
     - target: {fileID: 7060431191776372486, guid: 3d15a8fefee144c4c81c53b8f5fdd4d8, type: 3}
       propertyPath: m_Name
       value: Box
-      objectReference: {fileID: 0}
-    - target: {fileID: 7060431191776372486, guid: 3d15a8fefee144c4c81c53b8f5fdd4d8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d15a8fefee144c4c81c53b8f5fdd4d8, type: 3}
@@ -9265,10 +9255,6 @@ PrefabInstance:
     - target: {fileID: 7060431191776372486, guid: 3d15a8fefee144c4c81c53b8f5fdd4d8, type: 3}
       propertyPath: m_Name
       value: Box
-      objectReference: {fileID: 0}
-    - target: {fileID: 7060431191776372486, guid: 3d15a8fefee144c4c81c53b8f5fdd4d8, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d15a8fefee144c4c81c53b8f5fdd4d8, type: 3}
