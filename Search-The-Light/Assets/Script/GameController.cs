@@ -23,6 +23,8 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private Light2D light;
 
+    private float lightRadius;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +48,7 @@ public class GameController : MonoBehaviour
     {
         munitionText.text = totalMunition.ToString();
         PlayerPrefs.SetInt("bullet", totalMunition);
+        lightRadius = totalMunition;
     }
 
     public void UpdateScoreText()
@@ -55,7 +58,7 @@ public class GameController : MonoBehaviour
 
     public void UpdateLight()
     {
-        light.pointLightOuterRadius = 3 + (totalMunition/2);
+        light.pointLightOuterRadius = 4 + (lightRadius/2);
     }
 
 }
