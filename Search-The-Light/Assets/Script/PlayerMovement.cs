@@ -36,6 +36,10 @@ public class PlayerMovement : MonoBehaviour
 
     private int bulletqtd;
 
+    public AudioClip walkSound;
+    public AudioClip jumpSound;
+    public AudioSource fxSource;
+
 
     // Start is called before the first frame update
     void Start()
@@ -68,23 +72,38 @@ public class PlayerMovement : MonoBehaviour
             playeranim.SetBool("isLeft", false);
         }
 
-        if (rb.velocity.x != 0)
-        {
-            playeranim.SetBool("running", true);
-        }
-        else
-        {
-            playeranim.SetBool("running", false);
-        }
 
         if (Input.GetButton("Jump") && canJump)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpforce);
             playeranim.SetBool("jump", true);
+            fxSource.clip = jumpSound;
+            fxSource.Play();
         }
         else
         {
             playeranim.SetBool("jump", false);
+        }
+
+
+        if (rb.velocity.x != 0 && canJump)
+        {
+            playeranim.SetBool("running", true);
+            fxSource.clip = walkSound;
+            if (!fxSource.isPlaying)
+            {
+                fxSource.Play();
+            }
+        }
+        else
+        {
+            playeranim.SetBool("running", false);
+            {
+                if(fxSource.clip == walkSound)
+                {
+                    fxSource.Stop();
+                }
+            }
         }
 
 
