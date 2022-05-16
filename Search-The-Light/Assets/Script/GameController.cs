@@ -25,11 +25,50 @@ public class GameController : MonoBehaviour
 
     private float lightRadius;
 
+    private bool isPaused;
+    public GameObject pausePanel;
+
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
         Time.timeScale = 1;
+    }
+
+    void Update ()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseScreen();
+        }
+    }
+
+    public void PauseScreen()
+    {
+        if(isPaused)
+        {
+            isPaused = false;
+            Time.timeScale = 1f;
+            pausePanel.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            isPaused = true;
+            Time.timeScale = 0f;
+            pausePanel.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        } 
+    }
+
+    public void QuitGame()
+    {
+        //Editor Unity
+        UnityEditor.EditorApplication.isPlaying = false;
+        //Jogo Compilado
+        //Application.Quit();
     }
 
     public void ShowGameOver()
