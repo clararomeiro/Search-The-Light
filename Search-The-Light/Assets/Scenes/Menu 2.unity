@@ -1275,7 +1275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71e053ca48a1504b9228ea409545c02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cena: Game
+  cena: MainStory
 --- !u!4 &1434233933
 Transform:
   m_ObjectHideFlags: 0
