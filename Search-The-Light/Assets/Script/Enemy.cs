@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
     public Transform fimCP;
 
     public int Score;
+
+    public ParticleSystem particula;
     
 
     // Start is called before the first frame update
@@ -42,7 +44,8 @@ public class Enemy : MonoBehaviour
     {
         if(collision.gameObject.tag == "Bullet")
         {
-            Destroy(gameObject, 0.25f);
+            particula.gameObject.SetActive(true);
+            Destroy(gameObject, 0.5f);
             GameController.instance.totalScore += Score;
             GameController.instance.UpdateScoreText();
         }
