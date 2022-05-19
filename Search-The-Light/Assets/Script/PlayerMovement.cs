@@ -40,6 +40,8 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip jumpSound;
     public AudioSource fxSource;
 
+    private bool canDie;
+
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
         left.x *= -1;
         PlayerPrefs.SetInt("bullet", 0);
         PlayerPrefs.SetString("CanDie", "true");
+        canDie = true;
     }
 
     // Update is called once per frame
@@ -86,10 +89,17 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if (rb.velocity.x != 0 && canJump)
+        if (rb.velocity.x != 0 )
         {
             playeranim.SetBool("running", true);
-            fxSource.clip = walkSound;
+            if(Input.GetButton("Jump") && canJump)
+            {
+                fxSource.clip = jumpSound;
+            }
+            else
+            {
+                fxSource.clip = walkSound;
+            }
             if (!fxSource.isPlaying)
             {
                 fxSource.Play();
@@ -147,8 +157,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.collider.CompareTag("Enemy"))
         {
-            GameController.instance.ShowGameOver();
-            Destroy(gameObject);
+            if (canDie)
+            {
+                GameController.instance.ShowGameOver();
+                Destroy(gameObject);
+            }
         }
 
     }
@@ -172,10 +185,32 @@ public class PlayerMovement : MonoBehaviour
             GameController.instance.ShowGameOver();
         }
 
+        if (collision.CompareTag("Lantern"))
+        {
+            specialAction();
+        }
+
         /*if (collision.CompareTag("NextLevel"))
         {
             SceneManager.LoadScene("level2");
         }*/
+    }
+
+    public void specialAction()
+    {
+        StartCoroutine(specialActionCoroutine());
+    }
+
+    IEnumerator specialActionCoroutine()
+    {
+        canDie = false;
+        GameController.instance.UpdateLightLantern(true);
+
+        yield return new WaitForSeconds(10);
+
+        canDie = true;
+        GameController.instance.UpdateLightLantern(false);
+
     }
 
 

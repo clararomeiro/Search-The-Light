@@ -100,4 +100,17 @@ public class GameController : MonoBehaviour
         light.pointLightOuterRadius = 4 + (lightRadius/2);
     }
 
+    public void UpdateLightLantern(bool ison)
+    {
+        if (ison)
+        {
+            light.pointLightOuterRadius = 10;
+
+        }
+        else
+        {
+            light.pointLightOuterRadius = 4 + (lightRadius / 2);
+        }
+    }
+
 }

@@ -9,6 +9,7 @@ TagManager:
   - Object
   - EndLevel
   - Floor
+  - Lantern
   layers:
   - Default
   - TransparentFX
