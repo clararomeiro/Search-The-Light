@@ -34,7 +34,10 @@ public class Collectable : MonoBehaviour
 
             GameController.instance.UpdateMunitionText();
 
-            GameController.instance.UpdateLight();
+            if (PlayerMovement.instance.canDie)
+            {
+                GameController.instance.UpdateLight();
+            }
 
             Destroy(gameObject, 0.25f);
         }

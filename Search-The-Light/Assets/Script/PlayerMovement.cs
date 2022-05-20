@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement instance;
+
     [Header("Player")]
     [SerializeField]
     private Rigidbody2D rb;
@@ -40,12 +42,13 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip jumpSound;
     public AudioSource fxSource;
 
-    private bool canDie;
+    public bool canDie;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        if(instance == null) instance = this;
         PlayerPrefs.SetInt("EnemyKilled", 0);
         right = transform.localScale;
         left = transform.localScale;
@@ -117,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && PlayerPrefs.GetInt("bullet") >= 1)
+        if (Input.GetKeyDown(KeyCode.Space) && PlayerPrefs.GetInt("bullet") >= 1 && !GrabObject.instance.isGrabbing)
         {
             if (playeranim.GetCurrentAnimatorStateInfo(0).IsTag("Left"))
             {
@@ -133,11 +136,14 @@ public class PlayerMovement : MonoBehaviour
                 transform.localScale = right;
             }
             Instantiate(bullet, bulletPlace.transform.position, this.gameObject.transform.rotation);
-            PlayerPrefs.SetInt("bullet", bulletqtd - 1);
-            GameController.instance.totalMunition -= 1;
 
-            GameController.instance.UpdateMunitionText();
-            GameController.instance.UpdateLight();
+            if (canDie)
+            {
+                PlayerPrefs.SetInt("bullet", bulletqtd - 1);
+                GameController.instance.totalMunition -= 1;
+                GameController.instance.UpdateMunitionText();
+                GameController.instance.UpdateLight();
+            }
         }
         else
         {
