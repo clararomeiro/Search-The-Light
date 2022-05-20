@@ -312,6 +312,87 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &814541464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 814541465}
+  - component: {fileID: 814541467}
+  - component: {fileID: 814541466}
+  m_Layer: 5
+  m_Name: 7frase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &814541465
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814541464}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1800546783}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 6, y: 63}
+  m_SizeDelta: {x: 915.7667, y: 727.3204}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &814541466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814541464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 5577b7b2ef8a10146babf682a540b52b, type: 3}
+  m_Color: {r: 0.21909621, g: 0.5660378, b: 0.18956926, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 5577b7b2ef8a10146babf682a540b52b, type: 3}
+    m_FontSize: 50
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 60
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\nSeu objetivo principal \xE9 ca\xE7ar os vagalumes.\nUse-os com sabedoria.\n 
+    W\nA    D\nPara movimenta\xE7\xE3o!\nESC para pausar!\nESPA\xC7O para atirar
+    os vagalumes!"
+--- !u!222 &814541467
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814541464}
+  m_CullTransparentMesh: 1
 --- !u!1 &1064629126
 GameObject:
   m_ObjectHideFlags: 0
@@ -719,6 +800,18 @@ PlayableDirector:
     value: {fileID: 186522124}
   - key: {fileID: 8242494903975662600, guid: c229535b180497844b134d902e195d72, type: 2}
     value: {fileID: 1800546784}
+  - key: {fileID: 8188939543298653656, guid: c229535b180497844b134d902e195d72, type: 2}
+    value: {fileID: 341219206}
+  - key: {fileID: -2113715613284334146, guid: c229535b180497844b134d902e195d72, type: 2}
+    value: {fileID: 1183096514}
+  - key: {fileID: -4546640937035034448, guid: c229535b180497844b134d902e195d72, type: 2}
+    value: {fileID: 814541464}
+  - key: {fileID: -3171216805151434234, guid: c229535b180497844b134d902e195d72, type: 2}
+    value: {fileID: 186522124}
+  - key: {fileID: -8697961062459764618, guid: c229535b180497844b134d902e195d72, type: 2}
+    value: {fileID: 814541464}
+  - key: {fileID: -1075352466210372211, guid: c229535b180497844b134d902e195d72, type: 2}
+    value: {fileID: 186522124}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1800546780
@@ -799,6 +892,7 @@ RectTransform:
   - {fileID: 1488082718}
   - {fileID: 341219207}
   - {fileID: 1183096517}
+  - {fileID: 814541465}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
