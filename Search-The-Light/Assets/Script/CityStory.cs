@@ -7,6 +7,6 @@ public class CityStory : MonoBehaviour
 {
     void OnEnable()
     {
-        SceneManager.LoadScene("Game 2", LoadSceneMode.Single);
+        SceneManager.LoadScene("Game2", LoadSceneMode.Single);
     }
 }

@@ -382,9 +382,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\nSeu objetivo principal \xE9 ca\xE7ar os vagalumes.\nUse-os com sabedoria.\n 
-    W\nA    D\nPara movimenta\xE7\xE3o!\nESC para pausar!\nESPA\xC7O para atirar
-    os vagalumes!"
+  m_Text: "\nSeu objetivo principal \xE9 ca\xE7ar os vagalumes.\nUse-os com sabedoria.\nAs
+    lanternas fornecem imortalidade!\n  W\nA    D\nPara movimenta\xE7\xE3o!\nESC
+    para pausar!\nESPA\xC7O para atirar os vagalumes!"
 --- !u!222 &814541467
 CanvasRenderer:
   m_ObjectHideFlags: 0
