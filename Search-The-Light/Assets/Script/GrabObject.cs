@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class GrabObject : MonoBehaviour
 {
+    public static GrabObject instance;
+
     [SerializeField]
     private Transform grabPosition;
     private GameObject grabObject;
     private GameObject grabbedObject;
     private bool canGrab = false;
-    private bool isGrabbing = false;
+    public bool isGrabbing = false;
     [SerializeField]
     private Animator playerAnim;
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(instance == null) instance = this; 
     }
 
     // Update is called once per frame
