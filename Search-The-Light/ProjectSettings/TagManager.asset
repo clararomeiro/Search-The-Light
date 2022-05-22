@@ -10,6 +10,7 @@ TagManager:
   - EndLevel
   - Floor
   - Lantern
+  - NextLevel
   layers:
   - Default
   - TransparentFX
