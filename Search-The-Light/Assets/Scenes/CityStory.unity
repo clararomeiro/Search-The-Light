@@ -592,7 +592,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "\nSeu objetivo principal \xE9 ca\xE7ar os vagalumes.\nUse-os com sabedoria.\nAs
     lanternas fornecem imortalidade!\n  W\nA    D\nPara movimenta\xE7\xE3o!\nESC
-    para pausar!\nESPA\xC7O para atirar os vagalumes!"
+    para pausar!\nESPA\xC7O para atirar os vagalumes!\nE para segurar objetos!"
 --- !u!222 &1057397169
 CanvasRenderer:
   m_ObjectHideFlags: 0

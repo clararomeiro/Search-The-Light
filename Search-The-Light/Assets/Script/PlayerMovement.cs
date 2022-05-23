@@ -198,12 +198,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.CompareTag("NextLevel"))
         {
-            SceneManager.LoadScene("Game2");
+            SceneManager.LoadScene("CityStory");
         }
 
         if (collision.CompareTag("Finish"))
         {
-            //botar cena final
+           SceneManager.LoadScene("FinalStory");
         }
     }
 
