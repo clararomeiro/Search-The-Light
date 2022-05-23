@@ -66,9 +66,9 @@ public class GameController : MonoBehaviour
     public void QuitGame()
     {
         //Editor Unity
-        //UnityEditor.EditorApplication.isPlaying = false;
+        UnityEditor.EditorApplication.isPlaying = false;
         //Jogo Compilado
-        Application.Quit();
+        //Application.Quit();
     }
 
     public void ShowGameOver()

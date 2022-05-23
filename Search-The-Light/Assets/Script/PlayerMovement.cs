@@ -196,15 +196,10 @@ public class PlayerMovement : MonoBehaviour
             specialAction();
         }
 
-        if (collision.CompareTag("NextLevel"))
+        /*if (collision.CompareTag("NextLevel"))
         {
-            SceneManager.LoadScene("CityStory");
-        }
-
-        if (collision.CompareTag("Finish"))
-        {
-            SceneManager.LoadScene("FinalStory");
-        }
+            SceneManager.LoadScene("level2");
+        }*/
     }
 
     public void specialAction()
